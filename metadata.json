@@ -1,0 +1,7 @@
+{
+  "name": "臺北市 YouBike 即時查詢",
+  "description": "臺北市 YouBike 2.0 即時站點車輛查詢系統，支援行政區篩選、關鍵字搜尋、最低可借車輛與 Gemini 自然語言 AI 智慧查詢。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
