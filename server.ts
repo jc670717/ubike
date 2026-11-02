@@ -1,7 +1,19 @@
-import app from './src/apiApp';
-import path from 'path';
 import express, { Request, Response } from 'express';
+import path from 'path';
 import { createServer as createViteServer } from 'vite';
+import healthHandler from './api/health.ts';
+import districtsHandler from './api/youbike/districts.ts';
+import stationsHandler from './api/youbike/stations.ts';
+import parseSearchHandler from './api/gemini/parse-search.ts';
+
+const app = express();
+app.use(express.json());
+
+// API endpoints
+app.get('/api/health', (req: Request, res: Response) => healthHandler(req, res));
+app.get('/api/youbike/districts', (req: Request, res: Response) => districtsHandler(req, res));
+app.get('/api/youbike/stations', (req: Request, res: Response) => stationsHandler(req, res));
+app.post('/api/gemini/parse-search', (req: Request, res: Response) => parseSearchHandler(req, res));
 
 async function startServer() {
   const PORT = 3000;
